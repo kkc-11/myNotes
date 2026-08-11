@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<article style="max-width: 500px; margin: auto;">
+    <h2>Delete "{{ object.title }}"?</h2>
+    <p>This can't be undone.</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="grid">
+            <div><a href="{% url 'note_list' %}" role="button" class="secondary outline">Cancel</a></div>
+            <div><button type="submit" style="background:#d9534f; border-color:#d9534f;">Delete</button></div>
+        </div>
+    </form>
+</article>
+{% endblock %}

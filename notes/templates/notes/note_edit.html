@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<article style="max-width: 500px; margin: auto;">
+    <h2>Edit Note</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="grid">
+            <div><a href="{% url 'note_list' %}" role="button" class="outline secondary ">Cancel</a></div>
+            <div><button type="submit">Save</button></div>
+
+        </div>
+    </form>
+</article>
+{% endblock %}

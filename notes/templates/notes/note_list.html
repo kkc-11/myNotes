@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ user.username }} Notes</h1>
+
+<div class="grid">
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Note</button>
+        </form>
+
+    </div>
+    <div>
+      {% if user.is_authenticated %}
+      {% for note in notes %}
+      <article>
+          <header><strong>{{ note.title }}</strong> <small>{{note.created_at}}</small></header>
+          {{ note.content }}
+              <footer style="display:flex; gap:0.75rem; justify-content:flex-end;">
+        <a href="{% url 'note_edit' note.pk %}" aria-label="Edit note" title="Edit"
+           style="color:inherit; line-height:0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                <path d="M15 5l4 4"/>
+            </svg>
+        </a>
+        <a href="{% url 'note_delete' note.pk %}" aria-label="Delete note" title="Delete"
+           style="color:#d9534f; line-height:0;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18"/>
+                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+                <path d="M10 11v6"/>
+                <path d="M14 11v6"/>
+            </svg>
+        </a>
+    </footer>
+      </article>
+      {% empty %}
+      <p>No notes yet</p>
+      {% endfor %}
+        
+        {% else %}
+        <p>User not login <a href="{% url 'login' %}" role="button" class="secondary">Login</a></p>
+        {% endif %}
+
+    </div>
+</div>
+
+<hr>
+
+{% endblock %}
+

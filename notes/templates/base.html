@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body>
+<nav class="container">
+    <ul>
+        <li><strong>My Notes</strong></li>
+    </ul>
+    <ul>
+        {% if user.is_authenticated %}
+            <li>
+                <form method="post" action="{% url 'logout' %}" style="margin:0;">
+                    {% csrf_token %}
+                    <button type="submit" class="secondary">Logout</button>
+                </form>
+            </li>
+        {% else %}
+            <li><a href="{% url 'login' %}" role="button" class="secondary">Login</a></li>
+            <li><a href="{% url 'signup' %}" role="button">Sign Up</a></li>
+        {% endif %}
+    </ul>
+</nav>
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
