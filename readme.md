@@ -50,11 +50,11 @@ myproject/
 
 1. **Clone the repo / set up the project folder**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/kkchaudhary11/myNotes.git
    cd myproject
    ```
 
-2. **Create a virtual environment**
+2. **Create a virtual environment** (optioal)
    ```bash
    python -m venv venv
    source venv/bin/activate   # Windows: venv\Scripts\activate
@@ -84,8 +84,6 @@ myproject/
 7. **Open the app**
    - App: `http://127.0.0.1:8000/`
    - Admin: `http://127.0.0.1:8000/admin/`
-   - Sign up: `http://127.0.0.1:8000/accounts/signup/`
-   - Login: `http://127.0.0.1:8000/accounts/login/`
 
 ## How It Works
 
