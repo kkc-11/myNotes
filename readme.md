@@ -11,7 +11,6 @@ Built almost entirely with Django's built-in features (ORM, Auth, Class-Based Vi
 - Notes are private — users only see their own
 - Admin panel for managing all data
 - Clean UI via Pico CSS (semantic HTML, no utility classes)
-- SVG icons for edit/delete actions
 
 ## Tech Stack
 
