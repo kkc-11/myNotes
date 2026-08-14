@@ -50,10 +50,10 @@ myproject/
 1. **Clone the repo / set up the project folder**
    ```bash
    git clone https://github.com/kkchaudhary11/myNotes.git
-   cd myproject
+   cd myNotes
    ```
 
-2. **Create a virtual environment** (optioal)
+2. **Create a virtual environment** (optional)
    ```bash
    python -m venv venv
    source venv/bin/activate   # Windows: venv\Scripts\activate
@@ -70,7 +70,7 @@ myproject/
    python manage.py migrate
    ```
 
-5. **Create a superuser** (for admin access)
+5. **Create a superuser** (for admin access, optional)
    ```bash
    python manage.py createsuperuser
    ```
@@ -83,6 +83,8 @@ myproject/
 7. **Open the app**
    - App: `http://127.0.0.1:8000/`
    - Admin: `http://127.0.0.1:8000/admin/`
+
+### Do not forget to signup before login
 
 ## How It Works
 
